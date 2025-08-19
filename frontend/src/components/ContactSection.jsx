@@ -427,6 +427,16 @@ const ContactSection = () => {
             )}
           </div>
         </div>
+
+        {/* Mobile-specific styles */}
+        <style jsx>{`
+          @media (max-width: 767px) {
+            .contact-grid {
+              grid-template-columns: 1fr !important;
+              gap: 40px !important;
+            }
+          }
+        `}</style>
       </div>
     </section>
   );
