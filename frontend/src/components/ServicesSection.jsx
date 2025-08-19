@@ -45,9 +45,11 @@ const ServicesSection = () => {
         {/* Services Grid */}
         <div style={{ 
           display: 'grid', 
-          gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
           gap: '40px' 
-        }}>
+        }}
+        className="services-grid"
+        >
           {services.map((service) => {
             const IconComponent = iconMap[service.icon];
             
