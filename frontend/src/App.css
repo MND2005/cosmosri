@@ -319,3 +319,34 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--brand-active);
 }
+
+/* AI Visualization Animations */
+@keyframes float {
+  0%, 100% { 
+    transform: translateY(0px); 
+    opacity: 0.7;
+  }
+  50% { 
+    transform: translateY(-20px); 
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%, 100% { 
+    transform: scale(1); 
+    opacity: 0.7;
+  }
+  50% { 
+    transform: scale(1.1); 
+    opacity: 1;
+  }
+}
+
+.ai-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.ai-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
