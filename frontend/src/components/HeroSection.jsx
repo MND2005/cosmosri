@@ -81,9 +81,9 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right side - AI Visualization */}
+          {/* Right side - Software Development Visualization */}
           <div style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <AIVisualization />
+            <SoftwareVisualization />
           </div>
         </div>
       </div>
