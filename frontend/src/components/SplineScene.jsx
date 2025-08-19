@@ -3,6 +3,19 @@ import React, { useEffect, useState } from 'react';
 const SoftwareVisualization = () => {
   const [codeLines, setCodeLines] = useState([]);
   const [terminals, setTerminals] = useState([]);
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Check if mobile
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 767);
+    };
+    
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   useEffect(() => {
     // Code snippets that will float around
@@ -28,14 +41,17 @@ const SoftwareVisualization = () => {
       'function handleSubmit()'
     ];
 
-    const newCodeLines = codeSnippets.map((code, index) => ({
+    const containerWidth = isMobile ? 350 : 700;
+    const containerHeight = isMobile ? 400 : 700;
+
+    const newCodeLines = codeSnippets.slice(0, isMobile ? 8 : 19).map((code, index) => ({
       id: index,
       text: code,
-      x: Math.random() * 600 + 50,
-      y: Math.random() * 600 + 50,
+      x: Math.random() * (containerWidth - 200) + 50,
+      y: Math.random() * (containerHeight - 100) + 50,
       delay: Math.random() * 5000,
       duration: (Math.random() * 3000) + 4000,
-      fontSize: Math.random() * 4 + 12,
+      fontSize: Math.random() * (isMobile ? 2 : 4) + (isMobile ? 10 : 12),
       opacity: Math.random() * 0.6 + 0.4
     }));
 
@@ -47,29 +63,38 @@ const SoftwareVisualization = () => {
       ['$ python main.py', '> * Running on :8000']
     ];
 
-    const newTerminals = terminalCommands.map((commands, index) => ({
+    const terminalCount = isMobile ? 2 : 4;
+    const newTerminals = terminalCommands.slice(0, terminalCount).map((commands, index) => ({
       id: index,
       commands,
-      x: 50 + (index % 2) * 300,
-      y: 100 + Math.floor(index / 2) * 250,
-      width: 280,
-      height: 160
+      x: isMobile ? 
+          (index % 1) * (containerWidth - 200) + 50 : 
+          50 + (index % 2) * 300,
+      y: isMobile ? 
+          80 + index * 120 : 
+          100 + Math.floor(index / 2) * 250,
+      width: isMobile ? 200 : 280,
+      height: isMobile ? 100 : 160
     }));
 
     setCodeLines(newCodeLines);
     setTerminals(newTerminals);
-  }, []);
+  }, [isMobile]);
+
+  const containerWidth = isMobile ? 350 : 700;
+  const containerHeight = isMobile ? 400 : 700;
 
   return (
     <div style={{ 
-      width: "700px", 
-      height: "700px", 
+      width: `${containerWidth}px`, 
+      height: `${containerHeight}px`, 
       position: "relative",
       overflow: "hidden",
-      background: 'linear-gradient(135deg, rgba(0, 255, 209, 0.05) 0%, rgba(0, 0, 0, 0.1) 100%)'
+      background: 'linear-gradient(135deg, rgba(0, 255, 209, 0.05) 0%, rgba(0, 0, 0, 0.1) 100%)',
+      margin: '0 auto'
     }}>
       {/* Background Grid */}
-      <svg width="700" height="700" style={{ position: 'absolute', top: 0, left: 0, zIndex: 1 }}>
+      <svg width={containerWidth} height={containerHeight} style={{ position: 'absolute', top: 0, left: 0, zIndex: 1 }}>
         <defs>
           <pattern id="code-grid" width="40" height="40" patternUnits="userSpaceOnUse">
             <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(0, 255, 209, 0.1)" strokeWidth="1"/>
@@ -84,14 +109,14 @@ const SoftwareVisualization = () => {
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: '320px',
-        height: '200px',
+        width: isMobile ? '280px' : '320px',
+        height: isMobile ? '160px' : '200px',
         background: 'rgba(18, 18, 18, 0.9)',
         border: '1px solid #00FFD1',
         borderRadius: '8px',
-        padding: '16px',
+        padding: isMobile ? '12px' : '16px',
         fontFamily: 'JetBrains Mono, monospace',
-        fontSize: '14px',
+        fontSize: isMobile ? '12px' : '14px',
         zIndex: 3,
         boxShadow: '0 0 20px rgba(0, 255, 209, 0.3)'
       }}>
@@ -99,8 +124,8 @@ const SoftwareVisualization = () => {
         <div style={{
           display: 'flex',
           alignItems: 'center',
-          marginBottom: '12px',
-          paddingBottom: '8px',
+          marginBottom: isMobile ? '8px' : '12px',
+          paddingBottom: isMobile ? '6px' : '8px',
           borderBottom: '1px solid rgba(0, 255, 209, 0.2)'
         }}>
           <div style={{ display: 'flex', gap: '6px', marginRight: '12px' }}>
@@ -108,30 +133,32 @@ const SoftwareVisualization = () => {
             <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#ffbd2e' }}></div>
             <div style={{ width: '8px', height: '8px', borderRadius: '50%', background: '#28ca42' }}></div>
           </div>
-          <span style={{ color: '#00FFD1', fontSize: '12px' }}>main.py</span>
+          <span style={{ color: '#00FFD1', fontSize: isMobile ? '10px' : '12px' }}>main.py</span>
         </div>
 
         {/* Code Content */}
-        <div style={{ color: 'var(--text-secondary)', lineHeight: '1.4' }}>
+        <div style={{ color: 'var(--text-secondary)', lineHeight: '1.4', fontSize: isMobile ? '10px' : '14px' }}>
           <div><span style={{ color: '#ff6b6b' }}>from</span> <span style={{ color: '#4ecdc4' }}>fastapi</span> <span style={{ color: '#ff6b6b' }}>import</span> <span style={{ color: '#ffe66d' }}>FastAPI</span></div>
-          <div><span style={{ color: '#ff6b6b' }}>from</span> <span style={{ color: '#4ecdc4' }}>pydantic</span> <span style={{ color: '#ff6b6b' }}>import</span> <span style={{ color: '#ffe66d' }}>BaseModel</span></div>
+          {!isMobile && (
+            <div><span style={{ color: '#ff6b6b' }}>from</span> <span style={{ color: '#4ecdc4' }}>pydantic</span> <span style={{ color: '#ff6b6b' }}>import</span> <span style={{ color: '#ffe66d' }}>BaseModel</span></div>
+          )}
           <div style={{ marginTop: '8px' }}></div>
           <div><span style={{ color: '#ffe66d' }}>app</span> = <span style={{ color: '#4ecdc4' }}>FastAPI</span>()</div>
           <div style={{ marginTop: '8px' }}></div>
           <div><span style={{ color: '#ff6b6b' }}>@app</span>.<span style={{ color: '#4ecdc4' }}>get</span>(<span style={{ color: '#95e1d3' }}>"/api/status"</span>)</div>
-          <div><span style={{ color: '#ff6b6b' }}>async def</span> <span style={{ color: '#ffe66d' }}>get_status</span>():</div>
-          <div style={{ paddingLeft: '20px' }}><span style={{ color: '#ff6b6b' }}>return</span> {"{"}
-            <span style={{ color: '#95e1d3' }}>"status"</span>: <span style={{ color: '#95e1d3' }}>"active"</span>
+          <div><span style={{ color: '#ff6b6b' }}>async def</span> <span style={{ color: '#ffe66d' }}>status</span>():</div>
+          <div style={{ paddingLeft: isMobile ? '10px' : '20px' }}><span style={{ color: '#ff6b6b' }}>return</span> {"{"}
+            <span style={{ color: '#95e1d3' }}>"ok"</span>: <span style={{ color: '#95e1d3' }}>true</span>
           {"}"}</div>
         </div>
 
         {/* Typing cursor */}
         <div style={{
           position: 'absolute',
-          bottom: '20px',
-          left: '36px',
+          bottom: isMobile ? '15px' : '20px',
+          left: isMobile ? '25px' : '36px',
           width: '2px',
-          height: '16px',
+          height: isMobile ? '12px' : '16px',
           background: '#00FFD1',
           animation: 'blink 1s infinite'
         }}></div>
@@ -150,9 +177,9 @@ const SoftwareVisualization = () => {
             background: 'rgba(0, 0, 0, 0.8)',
             border: '1px solid rgba(0, 255, 209, 0.3)',
             borderRadius: '6px',
-            padding: '12px',
+            padding: isMobile ? '8px' : '12px',
             fontFamily: 'JetBrains Mono, monospace',
-            fontSize: '12px',
+            fontSize: isMobile ? '10px' : '12px',
             zIndex: 2,
             animation: `fadeInUp ${2 + terminal.id * 0.5}s ease-out`
           }}
@@ -161,7 +188,7 @@ const SoftwareVisualization = () => {
           <div style={{
             display: 'flex',
             alignItems: 'center',
-            marginBottom: '8px',
+            marginBottom: isMobile ? '6px' : '8px',
             paddingBottom: '4px',
             borderBottom: '1px solid rgba(0, 255, 209, 0.2)'
           }}>
@@ -170,7 +197,7 @@ const SoftwareVisualization = () => {
               <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#ffbd2e' }}></div>
               <div style={{ width: '6px', height: '6px', borderRadius: '50%', background: '#28ca42' }}></div>
             </div>
-            <span style={{ color: '#00FFD1', fontSize: '10px' }}>terminal</span>
+            <span style={{ color: '#00FFD1', fontSize: isMobile ? '8px' : '10px' }}>terminal</span>
           </div>
 
           {/* Terminal Commands */}
@@ -178,7 +205,8 @@ const SoftwareVisualization = () => {
             <div key={idx} style={{ 
               color: command.startsWith('$') ? '#00FFD1' : 'var(--text-secondary)',
               marginBottom: '4px',
-              animation: `typeWriter ${1 + idx * 0.5}s ease-out`
+              animation: `typeWriter ${1 + idx * 0.5}s ease-out`,
+              fontSize: isMobile ? '8px' : '12px'
             }}>
               {command}
             </div>
@@ -212,22 +240,24 @@ const SoftwareVisualization = () => {
       {/* Technology Stack Icons */}
       <div style={{
         position: 'absolute',
-        bottom: '50px',
+        bottom: isMobile ? '20px' : '50px',
         left: '50%',
         transform: 'translateX(-50%)',
         display: 'flex',
-        gap: '20px',
-        zIndex: 2
+        gap: isMobile ? '8px' : '20px',
+        zIndex: 2,
+        flexWrap: 'wrap',
+        justifyContent: 'center'
       }}>
-        {['React', 'Node.js', 'Python', 'Docker', 'AWS'].map((tech, index) => (
+        {['React', 'Node.js', 'Python', 'Docker', 'AWS'].slice(0, isMobile ? 3 : 5).map((tech, index) => (
           <div
             key={tech}
             style={{
               background: 'rgba(0, 255, 209, 0.1)',
               border: '1px solid #00FFD1',
               borderRadius: '6px',
-              padding: '8px 12px',
-              fontSize: '12px',
+              padding: isMobile ? '4px 8px' : '8px 12px',
+              fontSize: isMobile ? '10px' : '12px',
               color: '#00FFD1',
               fontFamily: 'JetBrains Mono, monospace',
               animation: `pulse ${2 + index * 0.3}s ease-in-out infinite`
