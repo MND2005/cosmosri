@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight, Zap, Code, Rocket } from 'lucide-react';
-import AIVisualization from './SplineScene';
+import SoftwareVisualization from './SplineScene';
 import { companyInfo, stats } from '../data/mock';
 
 const HeroSection = () => {
