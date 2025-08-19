@@ -81,9 +81,9 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Right side - 3D Spline Scene */}
+          {/* Right side - AI Visualization */}
           <div style={{ flex: 1, display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <SplineScene />
+            <AIVisualization />
           </div>
         </div>
       </div>
