@@ -117,6 +117,16 @@ const ServicesSection = () => {
             );
           })}
         </div>
+
+        {/* Mobile-specific styles */}
+        <style jsx>{`
+          @media (max-width: 767px) {
+            .services-grid {
+              grid-template-columns: 1fr !important;
+              gap: 30px !important;
+            }
+          }
+        `}</style>
       </div>
     </section>
   );
