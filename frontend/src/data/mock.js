@@ -76,22 +76,22 @@ export const testimonials = [
 export const team = [
   {
     id: 1,
-    name: "Alex Thompson",
+    name: "Tharindu C. Herath",
     role: "CEO & Founder",
     bio: "Visionary leader with 10+ years in software architecture and business strategy.",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
   },
   {
     id: 2,
-    name: "Maya Patel",
-    role: "CTO",
+    name: "Manuja Niroshan",
+    role: "Director",
     bio: "Technical architect specializing in scalable cloud solutions and AI integration.",
     image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face"
   },
   {
     id: 3,
-    name: "David Kim",
-    role: "Lead Developer",
+    name: "Dinusha Madushanka",
+    role: "Director",
     bio: "Full-stack engineer with expertise in modern web technologies and mobile development.",
     image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face"
   }
