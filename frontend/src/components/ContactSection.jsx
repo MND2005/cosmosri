@@ -78,7 +78,9 @@ const ContactSection = () => {
           gridTemplateColumns: '1fr 1fr', 
           gap: '80px',
           alignItems: 'start'
-        }}>
+        }}
+        className="contact-grid"
+        >
           {/* Contact Information */}
           <div>
             <h3 className="heading-2" style={{ marginBottom: '40px' }}>
