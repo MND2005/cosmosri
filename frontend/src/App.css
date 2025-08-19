@@ -276,11 +276,12 @@ body {
   box-shadow: 0 0 20px rgba(0, 255, 209, 0.3);
 }
 
-/* Responsive Design */
+/* Responsive Design - Mobile First Approach */
 @media (max-width: 767px) {
   .dark-header {
     padding: 16px 20px;
     height: 70px;
+    flex-wrap: wrap;
   }
   
   .dark-nav {
@@ -291,14 +292,81 @@ body {
     padding-top: 70px;
   }
   
-  .display-huge { font-size: 42px; }
-  .display-large { font-size: 36px; }
-  .display-medium { font-size: 28px; }
+  .dark-full-container {
+    padding: 0 20px;
+  }
+  
+  .display-huge { 
+    font-size: 36px; 
+    line-height: 1.1;
+  }
+  .display-large { 
+    font-size: 32px; 
+  }
+  .display-medium { 
+    font-size: 24px; 
+  }
+  .heading-1 { 
+    font-size: 24px; 
+  }
+  .heading-2 { 
+    font-size: 20px; 
+  }
+  .heading-3 { 
+    font-size: 18px; 
+  }
+  .body-large { 
+    font-size: 18px; 
+  }
+  .body-medium { 
+    font-size: 16px; 
+  }
+  
+  /* Mobile button adjustments */
+  .btn-primary, .btn-secondary {
+    padding: 12px 20px;
+    font-size: 16px;
+    min-height: 48px;
+    width: 100%;
+    justify-content: center;
+  }
+  
+  /* Mobile spacing */
+  .space-large { margin: 40px 0; }
+  .space-xlarge { margin: 60px 0; }
+  .space-xxlarge { margin: 80px 0; }
+  .pad-large { padding: 40px 20px; }
+  .pad-xlarge { padding: 60px 20px; }
+  .pad-xxlarge { padding: 80px 20px; }
 }
 
-@media (min-width: 768px) and (max-width: 1199px) {
+@media (min-width: 768px) and (max-width: 1023px) {
   .dark-header {
-    padding: 16px 5%;
+    padding: 16px 40px;
+  }
+  
+  .dark-full-container {
+    padding: 0 40px;
+  }
+  
+  .display-huge { 
+    font-size: 48px; 
+  }
+  .display-large { 
+    font-size: 40px; 
+  }
+  .display-medium { 
+    font-size: 28px; 
+  }
+}
+
+@media (min-width: 1024px) {
+  .dark-header {
+    padding: 16px 7.6923%;
+  }
+  
+  .dark-full-container {
+    padding: 0 7.6923%;
   }
 }
 
