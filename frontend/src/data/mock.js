@@ -79,7 +79,7 @@ export const team = [
     name: "Tharindu C. Herath",
     role: "CEO & Founder",
     bio: "Visionary leader with 10+ years in software architecture and business strategy.",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
+    image: "/ceo.jpg"
   },
   {
     id: 2,
@@ -93,7 +93,7 @@ export const team = [
     name: "Dinusha Madushanka",
     role: "Director",
     bio: "Full-stack engineer with expertise in modern web technologies and mobile development.",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face"
+    image: "/dinusha.jpg"
   }
 ];
 
