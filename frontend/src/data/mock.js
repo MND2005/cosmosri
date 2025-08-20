@@ -86,7 +86,7 @@ export const team = [
     name: "Manuja Niroshan",
     role: "Director",
     bio: "Technical architect specializing in scalable cloud solutions and AI integration.",
-    image: "https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face"
+    image: "/manuja.jpg"
   },
   {
     id: 3,
