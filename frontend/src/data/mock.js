@@ -43,10 +43,10 @@ export const services = [
 ];
 
 export const stats = [
-  { label: "Projects Delivered", value: "200+" },
-  { label: "Happy Clients", value: "150+" },
-  { label: "Years Experience", value: "8+" },
-  { label: "Team Members", value: "25+" }
+  { label: "Projects Delivered", value: "30+" },
+  { label: "Happy Clients", value: "25+" },
+  { label: "Years Experience", value: "3+" },
+  { label: "Team Members", value: "10+" }
 ];
 
 export const testimonials = [
