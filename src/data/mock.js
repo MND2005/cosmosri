@@ -5,9 +5,9 @@ export const companyInfo = {
   tagline: "Transforming Ideas Into Digital Reality",
   description: "We craft cutting-edge web applications, mobile solutions, and enterprise software that propel businesses into the future.",
   contact: {
-    email: "hello@cosmo.dev",
-    phone: "+1 (555) 123-4567",
-    address: "123 Innovation Drive, Tech Valley, CA 94000"
+    email: "cttechengineering12@gmail.com",
+    phone: "+94717266563",
+    address: "No. 80,Old Kesbewa Road, Colombo, Sri Lanka.",
   }
 };
 
