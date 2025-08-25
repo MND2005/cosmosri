@@ -5,7 +5,7 @@ export const companyInfo = {
   tagline: "Transforming Ideas Into Digital Reality",
   description: "We craft cutting-edge web applications, mobile solutions, and enterprise software that propel businesses into the future.",
   contact: {
-    email: "cttechengineering12@gmail.com",
+    email: "info@cosmosri.com",
     phone: "+94777570349",
     address: "No. 80,Old Kesbewa Road, Colombo, Sri Lanka.",
   }
