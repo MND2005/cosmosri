@@ -6,7 +6,7 @@ export const companyInfo = {
   description: "We craft cutting-edge web applications, mobile solutions, and enterprise software that propel businesses into the future.",
   contact: {
     email: "info@cosmosri.com",
-    phone: "+94777570349",
+    phone: "+94 71 247 6878",
     address: "Second Floor, Gagana city center, Monaragala, Sri Lanka.",
   }
 };
