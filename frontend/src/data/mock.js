@@ -7,7 +7,7 @@ export const companyInfo = {
   contact: {
     email: "info@cosmosri.com",
     phone: "+94777570349",
-    address: "No. 80,Old Kesbewa Road, Colombo, Sri Lanka.",
+    address: "Second Floor, Gagana city center, Monaragala, Sri Lanka.",
   }
 };
 
