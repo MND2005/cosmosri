@@ -46,7 +46,7 @@ export const stats = [
   { label: "Projects Delivered", value: "30+" },
   { label: "Happy Clients", value: "25+" },
   { label: "Years Experience", value: "3+" },
-  { label: "Team Members", value: "10+" }
+  { label: "Team Members", value: "20+" }
 ];
 
 export const testimonials = [
@@ -78,7 +78,7 @@ export const team = [
     id: 1,
     name: "Alex Thompson",
     role: "CEO & Founder",
-    bio: "Visionary leader with 10+ years in software architecture and business strategy.",
+    bio: "Visionary leader with 20+ years in software architecture and business strategy.",
     image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face"
   },
   {

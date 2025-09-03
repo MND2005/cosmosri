@@ -46,7 +46,7 @@ export const stats = [
   { label: "Projects Delivered", value: "30+" },
   { label: "Happy Clients", value: "25+" },
   { label: "Years Experience", value: "3+" },
-  { label: "Team Members", value: "10+" }
+  { label: "Team Members", value: "20+" }
 ];
 
 export const testimonials = [
@@ -78,7 +78,7 @@ export const team = [
     id: 1,
     name: "Tharindu C. Herath",
     role: "CEO & Founder",
-    bio: "Visionary leader with 10+ years in software architecture and business strategy.",
+    bio: "Visionary leader with 20+ years in software architecture and business strategy.",
     image: "/ceo.jpg"
   },
   {
