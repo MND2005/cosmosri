@@ -3,6 +3,9 @@ import { Target, Users, Award, Rocket } from 'lucide-react';
 import { team, testimonials } from '../data/mock';
 
 const AboutSection = () => {
+  // Filter out the CEO & Founder for temporary removal
+  const filteredTeam = team.filter(member => member.role !== "CEO & Founder");
+  
   return (
     <section id="about" className="dark-full-container" style={{ paddingTop: '100px', paddingBottom: '100px' }}>
       <div className="dark-content-container">
@@ -109,7 +112,7 @@ const AboutSection = () => {
             gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
             gap: '40px' 
           }}>
-            {team.map((member) => (
+            {filteredTeam.map((member) => (
               <div 
                 key={member.id}
                 className="dark-hover"
