@@ -97,6 +97,58 @@ export const team = [
   }
 ];
 
+// Electrical items data
+export const electricalItems = [
+  {
+    id: 1,
+    name: "LED Smart Bulb",
+    description: "Energy-efficient LED bulb with smart connectivity and dimming controls.",
+    price: "Rs. 7,500",
+    image: "https://i0.wp.com/catchme.lk/wp-content/uploads/smart-wifi-bulb-9w-16315097412213.webp",
+    features: ["Wi-Fi Enabled", "Dimmable", "Color Changing", "Voice Control"]
+  },
+  {
+    id: 2,
+    name: "Smart Switch",
+    description: "Intelligent wall switch with remote control and scheduling features.",
+    price: "Rs. 13,000",
+    image: "https://static-01.daraz.lk/p/ab2d6f05c09be527faee8937945add84.jpg",
+    features: ["Mobile App Control", "Timer Function", "Energy Monitoring", "Voice Assistant"]
+  },
+  {
+    id: 3,
+    name: "Power Strip",
+    description: "Surge-protected power strip with multiple outlets and USB ports.",
+    price: "Rs. 11,200",
+    image: "https://images-cdn.ubuy.co.in/636c32072e77d3110b13a074-metal-8-outlet-mountable-power-strip.jpg",
+    features: ["Surge Protection", "6 Outlets", "4 USB Ports", "Flat Plug Design"]
+  },
+  {
+    id: 4,
+    name: "Smart Outlet",
+    description: "WiFi-enabled outlet that can be controlled remotely and monitor energy usage.",
+    price: "Rs. 9,300",
+    image: "https://generalpower.lk/wp-content/uploads/2024/08/JJ.png",
+    features: ["Energy Monitoring", "Scheduling", "Remote Control", "Child Safety"]
+  },
+  {
+    id: 5,
+    name: "LED Strip Lights",
+    description: "Flexible RGB LED strip lights with music synchronization and app control.",
+    price: "Rs. 18,400",
+    image: "https://img.drz.lazcdn.com/static/lk/p/7fe70e17bf892b020b708dc12ebe6c6b.jpg_720x720q80.jpg",
+    features: ["16 Million Colors", "Music Sync", "App Control", "Cuttable Design"]
+  },
+  {
+    id: 6,
+    name: "Smart Thermostat",
+    description: "Programmable thermostat with learning capabilities and energy savings.",
+    price: "Rs. 48,500",
+    image: "https://m.media-amazon.com/images/I/61bR4JHBp1L._AC_SL1500_.jpg",
+    features: ["Learning Algorithm", "Energy Reports", "Geofencing", "Multi-Zone Control"]
+  }
+];
+
 export const contactForm = {
   fields: [
     { name: "name", label: "Full Name", type: "text", required: true },

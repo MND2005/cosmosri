@@ -7,6 +7,7 @@ import ServicesSection from "./components/ServicesSection";
 import AboutSection from "./components/AboutSection";
 import ContactSection from "./components/ContactSection";
 import Footer from "./components/Footer";
+import ElectricalItems from "./components/ElectricalItems";
 
 const Home = () => {
   return (
@@ -27,6 +28,13 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/electrical-items" element={
+            <div className="dark-container">
+              <Header />
+              <ElectricalItems />
+              <Footer />
+            </div>
+          } />
         </Routes>
       </BrowserRouter>
     </div>

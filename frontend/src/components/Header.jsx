@@ -1,13 +1,28 @@
 import React, { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Zap } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const navigate = useNavigate();
 
   const scrollToSection = (sectionId) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+    if (window.location.pathname !== '/') {
+      // If we're not on the home page, navigate to home first
+      navigate('/');
+      // Wait a bit for the navigation to complete, then scroll
+      setTimeout(() => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      }, 100);
+    } else {
+      // If we're already on the home page, just scroll
+      const element = document.getElementById(sectionId);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+      }
     }
     setIsMobileMenuOpen(false); // Close mobile menu after navigation
   };
@@ -15,14 +30,18 @@ const Header = () => {
   return (
     <>
       <header className="dark-header">
-        <div className="dark-logo">
+        <div 
+          className="dark-logo"
+          onClick={() => navigate('/')}
+          style={{ cursor: 'pointer' }}
+        >
           COSMO
         </div>
         
         {/* Desktop Navigation */}
         <nav className="dark-nav">
           <button 
-            onClick={() => scrollToSection('hero')}
+            onClick={() => navigate('/')}
             className="dark-nav-link"
           >
             Home
@@ -38,6 +57,12 @@ const Header = () => {
             className="dark-nav-link"
           >
             About
+          </button>
+          <button 
+            onClick={() => navigate('/electrical-items')}
+            className="dark-nav-link"
+          >
+            Electrical Items
           </button>
           <button 
             onClick={() => scrollToSection('contact')}
@@ -88,7 +113,10 @@ const Header = () => {
             gap: '20px'
           }}>
             <button 
-              onClick={() => scrollToSection('hero')}
+              onClick={() => {
+                navigate('/');
+                setIsMobileMenuOpen(false);
+              }}
               className="dark-nav-link"
               style={{
                 background: 'none',
@@ -125,6 +153,22 @@ const Header = () => {
               }}
             >
               About
+            </button>
+            <button 
+              onClick={() => {
+                navigate('/electrical-items');
+                setIsMobileMenuOpen(false);
+              }}
+              className="dark-nav-link"
+              style={{
+                background: 'none',
+                border: 'none',
+                textAlign: 'left',
+                padding: '12px 0',
+                fontSize: '18px'
+              }}
+            >
+              Electrical Items
             </button>
             <button 
               onClick={() => scrollToSection('contact')}
